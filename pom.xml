@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.kata</groupId>
-    <artifactId>PP_3_1_3_Boot_Security_Paul</artifactId>
+    <artifactId>PP_3_1_5_JS-Rest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot_security-demo</name>
     <description>Demo project for Spring Boot</description>

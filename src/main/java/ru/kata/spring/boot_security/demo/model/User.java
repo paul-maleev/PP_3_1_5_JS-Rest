@@ -42,7 +42,6 @@ public class User implements UserDetails {
     private int age;
     @Column(name = "email", unique = true)
     @NotEmpty(message = "Email should not be empty")
-
     @Email
     private String email;
     @Column(name = "password")
@@ -56,17 +55,18 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-
     private List<Role> roles;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, int age, String email) {
+    public User(String firstName, String lastName, int age, String email, String password, List<Role> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
+        this.password = password;
+        this.roles = roles;
     }
 
     @Override

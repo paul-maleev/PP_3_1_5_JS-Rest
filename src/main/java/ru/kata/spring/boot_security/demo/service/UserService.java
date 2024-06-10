@@ -7,6 +7,10 @@ import java.util.List;
 public interface UserService {
     void addUser(User user, String[] roles, String pass);
 
+    void save(User user);
+
+    void update(User user);
+
     User getUser(int id);
 
     void updateUser(User user, String[] roles, String pass);

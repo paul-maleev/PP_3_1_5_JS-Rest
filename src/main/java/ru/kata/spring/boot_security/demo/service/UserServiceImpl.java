@@ -35,6 +35,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
+    public void save(User user) {
+        String pass = user.getPassword();
+        user.setPassword(passwordEncoder.encode(pass));
+        userDao.save(user);
+    }
+
+    @Override
+    @Transactional
+    public void update(User user) {
+        String pass = user.getPassword();
+        user.setPassword(passwordEncoder.encode(pass));
+        userDao.update(user.getId(), user);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public User getUser(int id) {
         return userDao.show(id);

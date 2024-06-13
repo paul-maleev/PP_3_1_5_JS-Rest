@@ -40,9 +40,6 @@ populateRolesDropdown('roles');
 populateRolesDropdown('rolesEdit');
 populateRolesDropdown('rolesDelete');
 
-
-
-
 const showTable = (users) => {
     let table = document.getElementById("tableAllUsers").innerHTML
     users.forEach((user)=> {

@@ -1,7 +1,7 @@
-const url1 ='http://localhost:8080/users/user'
-const url2 ='http://localhost:8080/users'
-const url3 ='http://localhost:8080/users/'
-const url4 ='http://localhost:8080/users/roles'
+const url1 ='http://localhost:8080/api/admin/user'
+const url2 ='http://localhost:8080/api/admin'
+const url3 ='http://localhost:8080/api/admin'
+const url4 ='http://localhost:8080/api/admin/roles'
 
 //Nav Bar
 fetch(url1)

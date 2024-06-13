@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/admin")
 public class RestAdminController {
 
     private final UserService userService;

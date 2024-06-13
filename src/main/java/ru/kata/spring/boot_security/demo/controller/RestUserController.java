@@ -17,7 +17,7 @@ import java.security.Principal;
 
 
 @RestController
-@RequestMapping("/info")
+@RequestMapping("/api/user")
 public class RestUserController {
 
     private final UserService userService;
@@ -31,7 +31,7 @@ public class RestUserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/user")
+    @GetMapping("")
     public ResponseEntity<User> user(Principal principal) {
         return new ResponseEntity<>(userService.findByEmail(principal.getName()), HttpStatus.OK);
     }

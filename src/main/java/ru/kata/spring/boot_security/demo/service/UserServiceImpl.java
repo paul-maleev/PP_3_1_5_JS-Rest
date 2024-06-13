@@ -31,7 +31,8 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Arrays.stream(roles)
                 .map(role -> roleService.findByRole(role))
                 .collect(Collectors.toList()));
-        userDao.save(user);
+        //userDao.save(user);
+        this.save(user);
     }
 
     @Override
@@ -63,7 +64,8 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Arrays.stream(roles)
                 .map(role -> roleService.findByRole(role))
                 .collect(Collectors.toList()));
-        userDao.update(user.getId(), user);
+        //userDao.update(user.getId(), user);
+        this.update(user);
     }
 
     @Transactional

@@ -17,7 +17,6 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.Arrays;
 
 @Controller
 @RequestMapping("/admin")
@@ -56,10 +55,10 @@ public class AdminController {
         if (bindingResult.hasErrors()) {
             return "/admin";
         }
-        System.out.println("ROLE  = "+ Arrays.toString(roles));
+        //System.out.println("ROLE  = "+ Arrays.toString(roles));
         userService.addUser(user, roles, pass);
-        User get = userService.findByEmail(user.getEmail());
-        System.out.println(get.getRoles().toString());
+        //User get = userService.findByEmail(user.getEmail());
+        //System.out.println(get.getRoles().toString());
         return "redirect:/admin";
     }
 

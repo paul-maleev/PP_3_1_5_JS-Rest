@@ -9,6 +9,7 @@ import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 
+
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
@@ -39,4 +40,6 @@ public class MvcConfig implements WebMvcConfigurer {
         templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
     }
+
+
 }

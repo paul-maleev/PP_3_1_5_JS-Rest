@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.RoleServiceImpl;
@@ -18,6 +19,7 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -38,19 +40,30 @@ public class RestAdminController {
         return new ResponseEntity<>(userService.listUsers(), HttpStatus.OK);
     }
 
+
     @GetMapping("/user")
     public ResponseEntity<User> navBar(Principal principal) {
         return new ResponseEntity<>(userService.findByEmail(principal.getName()), HttpStatus.OK);
     }
 
+    @GetMapping("/roles")
+    public ResponseEntity<List<Role>> allRolesRest() {
+        return new ResponseEntity<>(roleService.listRoles(), HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<User> addUser(@RequestBody User user) {
+
+        System.out.println("User " + user.getEmail() + " ROLES = " + Arrays.toString(user.getRoles().toArray()));
+        user.setRoles(user.getRoles());
         userService.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @PutMapping()
     public ResponseEntity<User> update(@RequestBody User user) {
+        System.out.println("User " + user.getEmail() + " ROLES = " + Arrays.toString(user.getRoles().toArray()));
+        user.setRoles(user.getRoles());
         userService.update(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }

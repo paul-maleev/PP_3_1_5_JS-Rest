@@ -1,6 +1,7 @@
 const url1 ='http://localhost:8080/users/user'
 const url2 ='http://localhost:8080/users'
 const url3 ='http://localhost:8080/users/'
+const url4 ='http://localhost:8080/users/roles'
 
 //Nav Bar
 fetch(url1)
@@ -18,6 +19,29 @@ fetch(url1)
     })
 
 //Admin Panel
+
+const populateRolesDropdown = (dropdownId) => {
+    fetch(url4)
+        .then(response => response.json())
+        .then(roles => {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.innerHTML = ''; // Очистить существующие опции
+            roles.forEach(role => {
+                const option = document.createElement('option');
+                option.value = role.role;
+                option.text = role.role.replace('ROLE_', '');
+                dropdown.appendChild(option);
+            });
+        });
+};
+
+// Заполнить роли для форм добавления и редактирования
+populateRolesDropdown('roles');
+populateRolesDropdown('rolesEdit');
+populateRolesDropdown('rolesDelete');
+
+
+
 
 const showTable = (users) => {
     let table = document.getElementById("tableAllUsers").innerHTML

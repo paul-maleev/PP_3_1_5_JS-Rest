@@ -4,11 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <title>Admin panel</title>
 </head>
 <body>
@@ -101,10 +99,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="roles" class="col-form-label">Roles</label>
-                                            <select class="form-control" name="rolesList" id="roles" size="2" multiple required >
-                                                <option value="ROLE_ADMIN">ADMIN</option>
-                                                <option value="ROLE_USER">USER</option>
-                                            </select>
+                                            <select class="form-control" name="rolesList" id="roles" multiple required></select>
                                         </div>
                                         <button type="submit" class="btn btn-success">Add new user</button>
                                     </div>
@@ -161,10 +156,7 @@
                     </div>
                     <div class="form-group">
                         <label for="rolesEdit" class="col-form-label">Roles</label>
-                        <select class="form-control" name="rolesList" id="rolesEdit" size="2" multiple >
-                            <option value="ROLE_ADMIN">ADMIN</option>
-                            <option value="ROLE_USER" selected="selected">USER</option>
-                        </select>
+                        <select class="form-control" name="rolesList" id="rolesEdit" multiple></select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -212,11 +204,9 @@
                     </div>
                     <div class="form-group">
                         <label for="rolesDelete" class="col-form-label">Roles</label>
-                        <select class="form-control" name="rolesList" id="rolesDelete" size="2" multiple readonly="readonly">
-                            <option value="ROLE_ADMIN">ADMIN</option>
-                            <option value="ROLE_USER">USER</option>
-                        </select>
+                        <select class="form-control" name="rolesDelete" id="rolesDelete" multiple required></select>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"

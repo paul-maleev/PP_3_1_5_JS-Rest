@@ -19,7 +19,6 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 
 import java.security.Principal;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -53,8 +52,6 @@ public class RestAdminController {
 
     @PostMapping()
     public ResponseEntity<User> addUser(@RequestBody User user) {
-
-        System.out.println("User " + user.getEmail() + " ROLES = " + Arrays.toString(user.getRoles().toArray()));
         user.setRoles(user.getRoles());
         userService.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
@@ -62,7 +59,6 @@ public class RestAdminController {
 
     @PutMapping()
     public ResponseEntity<User> update(@RequestBody User user) {
-        System.out.println("User " + user.getEmail() + " ROLES = " + Arrays.toString(user.getRoles().toArray()));
         user.setRoles(user.getRoles());
         userService.update(user);
         return new ResponseEntity<>(user, HttpStatus.OK);

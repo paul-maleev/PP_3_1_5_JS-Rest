@@ -1,6 +1,5 @@
 const url ='http://localhost:8080/info/user'
 
-
 fetch(url)
     .then(res => { res.json().then(
         user=>{
@@ -11,7 +10,6 @@ fetch(url)
             user.roles.forEach((role) => navBarUser += role.role.replace('ROLE_','')+' ')
             navBarUser += "</span>"
             document.getElementById("navBarUser").innerHTML = navBarUser
-
             let tableUser = ""
             tableUser += "<tr>"
             tableUser += "<td>"+user.id+"</td>"

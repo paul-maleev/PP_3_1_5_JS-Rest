@@ -26,7 +26,6 @@ public class DbInit {
     @PostConstruct
     private void postConstruct() {
 
-
         Role admin = new Role("ROLE_ADMIN");
         Role user = new Role("ROLE_USER");
         List<Role> listAdmin = new ArrayList<>();

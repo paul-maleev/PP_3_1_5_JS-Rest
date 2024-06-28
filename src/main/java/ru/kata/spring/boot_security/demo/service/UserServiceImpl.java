@@ -27,12 +27,14 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void addUser(User user, String[] roles, String pass) {
+        System.out.println("password before encryption = "+pass);
         user.setPassword(passwordEncoder.encode(pass));
+        System.out.println("password after  encryption = "+user.getPassword());
         user.setRoles(Arrays.stream(roles)
                 .map(role -> roleService.findByRole(role))
                 .collect(Collectors.toList()));
-        //userDao.save(user);
-        this.save(user);
+        userDao.save(user);
+        System.out.println(user.toString()+" pass: "+pass);
     }
 
     @Override
@@ -64,8 +66,7 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Arrays.stream(roles)
                 .map(role -> roleService.findByRole(role))
                 .collect(Collectors.toList()));
-        //userDao.update(user.getId(), user);
-        this.update(user);
+        userDao.update(user.getId(), user);
     }
 
     @Transactional

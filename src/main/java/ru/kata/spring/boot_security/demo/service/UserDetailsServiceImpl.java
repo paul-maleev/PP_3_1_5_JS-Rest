@@ -31,7 +31,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         try {
             user = userDao.findByEmail(username);
         } catch (EntityNotFoundException e) {
+            System.out.println("Email " + username + " not found!");
             throw new UsernameNotFoundException("Email " + username + " not found!");
+
         }
         return user;
     }

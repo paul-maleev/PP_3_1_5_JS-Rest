@@ -69,4 +69,10 @@ public class RestAdminController {
         userService.deleteUser(id);
         return new ResponseEntity<>(id, HttpStatus.NO_CONTENT);
     }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable("id") int id) {
+        return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
+    }
 }
